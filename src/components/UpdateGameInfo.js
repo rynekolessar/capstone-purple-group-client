@@ -161,7 +161,7 @@ class UpdateGameInfo extends Component {
                     </div>
                 </div>
             </div>
-          );      
+        );      
     }
 }
 

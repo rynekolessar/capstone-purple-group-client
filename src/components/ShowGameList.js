@@ -8,7 +8,7 @@ class ShowGameList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      games: [],
+      games: []
     };
   }
 
@@ -17,13 +17,13 @@ class ShowGameList extends Component {
       .get("http://localhost:8082/api/games")
       .then((res) => {
         this.setState({
-          games: res.data,
-        });
+          games: res.data
+        })
       })
       .catch((err) => {
         console.log("Error in ShowGameList");
-      });
-  }
+      })
+  };
 
   render() {
     const games = this.state.games;
@@ -33,7 +33,9 @@ class ShowGameList extends Component {
     if (!games) {
       gameList = "there is no game record";
     } else {
-      gameList = games.map((game, k) => <GameCard game={game} key={k} />);
+      gameList = games.map((game, k) => 
+        <GameCard game={game} key={k} />
+      );
     }
 
     return (

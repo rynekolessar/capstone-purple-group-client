@@ -19,6 +19,6 @@ const GameCard = (props) => {
             </div>
         </div>
     );
-};
+}
 
 export default GameCard;
