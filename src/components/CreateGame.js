@@ -7,12 +7,12 @@ class CreateGame extends Component {
 	constructor() {
 		super();
 		this.state = {
-			title = '',
-			platform = '',
-			genre = '',
-			release_date = '',
-			description = '',
-			game_studio = ''
+			title: '',
+			platform: '',
+			genre: '',
+			release_date: '',
+			description: '',
+			game_studio: ''
 		};
 	}
 

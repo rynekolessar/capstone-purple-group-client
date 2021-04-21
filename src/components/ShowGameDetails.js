@@ -39,7 +39,7 @@ class showGameDetails extends Component {
     render() {
 
         const game = this.state.game;
-        let gameItem = <div>
+        let GameItem = <div>
             <table className="table table-hover table-dark">
                 <tbody>
                 <tr>
