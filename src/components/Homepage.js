@@ -50,7 +50,7 @@ class Homepage extends Component {
                                     <input
                                         type='text'
                                         placeholder='Search'
-                                        name='platform'
+                                        name='search'
                                         className='form-control'
                                         value={this.state.search}
                                         onChange={this.onChange}
