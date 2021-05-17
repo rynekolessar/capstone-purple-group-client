@@ -16,6 +16,28 @@ class Login extends Component {
         this.setState({ [e.target.name]: e.target.value });
     };
 
+    onSubmit = e => {
+        e.preventDefault();
+
+        const data = {
+            username: '',
+            password: ''
+        };
+
+        axios
+            .post('http://localhost:8082/api/login', data)
+            .then(res => {
+                this.setState({
+                    username: '',
+                    passowrd: ''
+                })
+                this.props.history.push('/');
+            })
+            .catch(err => {
+                console.log("Error in Login");
+            })
+    };
+
     render() {
         return (
             <div className="Login">
