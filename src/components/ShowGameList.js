@@ -48,9 +48,13 @@ class ShowGameList extends Component {
             </div>
 
             <div className="col-md-11">
-              <Link to="/create-game" className="btn btn-outline-warning float-right">
-                + Add New Game
+              <Link to="/" className="btn btn-outline-warning float-left">
+                            Home
               </Link>
+              <Link to="/create-game" className="btn btn-outline-warning float-right">
+                            + Add New Game
+              </Link>
+               
               <br />
               <br />
               <hr />
