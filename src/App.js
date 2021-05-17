@@ -9,6 +9,7 @@ import UpdateGameInfo from './components/UpdateGameInfo';
 import HomePage from './components/Homepage';
 import Login from './components/Login';
 import MyReviews from './components/MyReviews';
+import AboutUs from './components/AboutUs';
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
                 <Route path='/edit-game/:id' component={UpdateGameInfo} />
                 <Route path='/show-game/:id' component={ShowGameDetails} />
                 <Route path='/myreviews' component={MyReviews} />
+                <Route path='/aboutus' component={AboutUs}/>
             </div>
       </Router>
     );

@@ -36,7 +36,9 @@ class Homepage extends Component {
                             <Link to="/myreviews" className="btn btn-outline-warning float-left">
                                 My Reviews
                             </Link>
-
+                            <Link to="/aboutus" className="btn btn-outline-warning float-left">
+                                About Us
+                            </Link>
                             <br />
                             <br />
                             <hr />
