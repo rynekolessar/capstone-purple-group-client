@@ -14,7 +14,7 @@ class ShowGameList extends Component {
 
   componentDidMount() {
     axios
-      .get("http://localhost:8082/api/games")
+      .get("http://localhost:8082/games")
       .then((res) => {
         this.setState({
           games: res.data
@@ -50,6 +50,12 @@ class ShowGameList extends Component {
             <div className="col-md-11">
               <Link to="/" className="btn btn-outline-warning float-left">
                             Home
+              </Link>
+              <Link to="/myreviews" className="btn btn-outline-warning float-left">
+                   My Reviews
+              </Link>
+              <Link to="/aboutus" className="btn btn-outline-warning float-left">
+                            About Us
               </Link>
               <Link to="/create-game" className="btn btn-outline-warning float-right">
                             + Add New Game

@@ -13,7 +13,7 @@ class showGameDetails extends Component {
 
     componentDidMount() {
         axios
-            .get('http://localhost:8082/api/games/'+this.props.match.params.id)
+            .get('http://localhost:8082/games/'+this.props.match.params.id)
             .then(res => {
                 this.setState({
                     game: res.data
@@ -26,7 +26,7 @@ class showGameDetails extends Component {
 
     onDeleteClick (id) {
         axios
-            .delete('http://localhost:8082/api/games/'+id)
+            .delete('http://localhost:8082/games/'+id)
             .then(res => {
                 this.props.history.push("/");
             })

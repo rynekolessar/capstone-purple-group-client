@@ -33,7 +33,7 @@ class CreateGame extends Component {
 		};
 
 		axios
-			.post('http://localhost:8082/api/games', data)
+			.post('http://localhost:8082/games', data)
 			.then(res => {
 				this.setState({
 					title: '',

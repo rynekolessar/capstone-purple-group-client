@@ -17,6 +17,12 @@ class MyReviews extends Component {
                             <Link to="/" className="btn btn-outline-warning float-left">
                                 Home
                             </Link>
+                            <Link to="/show-game" className="btn btn-outline-warning float-left">
+                                Games List
+                            </Link>
+                            <Link to="/aboutus" className="btn btn-outline-warning float-left">
+                                About Us
+                            </Link>
                             <Link to="/login" className="btn btn-outline-warning float-right">
                                 Login
                             </Link>

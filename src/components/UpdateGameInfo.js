@@ -20,7 +20,7 @@ class UpdateGameInfo extends Component {
 
     componentDidMount() {
         axios
-            .get('http://localhost:8082/api/games/'+this.props.match.params.id)
+            .get('http://localhost:8082/games/'+this.props.match.params.id)
             .then(res => {
                 this.setState({
                     title: res.data.title,
@@ -53,7 +53,7 @@ class UpdateGameInfo extends Component {
         };
 
         axios
-            .put('http://localhost:8082/api/games/'+this.props.match.params.id, data)
+            .put('http://localhost:8082/games/'+this.props.match.params.id, data)
             .then(res => {
                 this.props.history.push('/show-game/'+this.props.match.params.id);
             })

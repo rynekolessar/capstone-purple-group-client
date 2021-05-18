@@ -25,7 +25,7 @@ class Login extends Component {
         };
 
         axios
-            .post('http://localhost:8082/api/login', data)
+            .post('http://localhost:8082/users/login', data)
             .then(res => {
                 this.setState({
                     username: '',

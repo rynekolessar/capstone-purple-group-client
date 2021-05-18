@@ -30,6 +30,9 @@ class Homepage extends Component {
                             <Link to="/login" className="btn btn-outline-warning float-right">
                                 Login
                             </Link>
+                            <Link to="/signup" className="btn btn-outline-warning float-right">
+                                SignUp
+                            </Link>
                             <Link to="/show-game" className="btn btn-outline-warning float-left">
                                 Games List
                             </Link>

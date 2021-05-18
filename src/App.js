@@ -8,6 +8,7 @@ import ShowGameDetails from './components/ShowGameDetails';
 import UpdateGameInfo from './components/UpdateGameInfo';
 import HomePage from './components/Homepage';
 import Login from './components/Login';
+import SignUp from './components/SignUp';
 import MyReviews from './components/MyReviews';
 import AboutUs from './components/AboutUs';
 
@@ -18,6 +19,7 @@ class App extends Component {
             <div>
                 <Route exact path='/' component={HomePage} />
                 <Route path='/login' component={Login} />
+                <Route path='/signup' component={SignUp}/>
                 <Route path='/show-game' component={ShowGameList}/>
                 <Route path='/create-game' component={CreateGame} />
                 <Route path='/edit-game/:id' component={UpdateGameInfo} />
