@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
-import axios from 'axios';
+import AuthService from '../services/auth.service';
 
 class SignUp extends Component {
     constructor() {
@@ -21,27 +21,58 @@ class SignUp extends Component {
     onSubmit = e => {
         e.preventDefault();
 
-        const data = {
-            name: '',
-            email: '',
-            password: '',
-            confirmPassword: ''
-        };
+        // const data = {
+        //     name: this.state.name,
+        //     email: this.state.email,
+        //     password: this.state.password,
+        //     confirmPassword: this.state.confirmPassword
+        // };
 
-        axios
-            .post('http://localhost:8082/users/signup', data)
-            .then(res => {
+        // axios
+        //     .post('http://localhost:8082/users/signup', data)
+        //     .then(res => {
+        //         this.setState({
+        //             name: '',
+        //             email: '',
+        //             password: '',
+        //             confirmPassword: ''
+        //         })
+        //         this.props.history.push('/');
+        //     })
+        //     .catch(err => {
+        //         console.log("Error in SignUp");
+        //     })
+
+        AuthService.register(
+            this.state.name,
+            this.state.email,
+            this.state.password,
+            this.state.confirmPassword
+
+        ).then(
+            response => {
                 this.setState({
-                    name: '',
-                    email: '',
-                    password: '',
-                    confirmPassword: ''
-                })
-                this.props.history.push('/');
-            })
-            .catch(err => {
-                console.log("Error in SignUp");
-            })
+                    message: response.data.message,
+                    successful: true
+                });
+                this.props.history.push('/login');
+            },
+            error => {
+                const resMessage =
+                    (error.response &&
+                        error.response.data &&
+                        error.response.data.message) ||
+                    error.message ||
+                    error.toString();
+
+                this.setState({
+                    successful: false,
+                    message: resMessage
+                });
+            }
+        );
+
+
     };
 
     render() {
@@ -58,7 +89,7 @@ class SignUp extends Component {
                             <p className="lead text-center">
 
                             </p>
-                            <form noValidate onSubmit={this.onSubmit}>
+                            <form onSubmit={this.onSubmit}>
                                 <div className='form-group'>
                                     <input
                                         type='text'
@@ -103,10 +134,7 @@ class SignUp extends Component {
                                     />
                                 </div>
 
-                                <input
-                                    type="submit"
-                                    className="btn btn-outline-warning btn-block mt-4"
-                                />
+                                <input type="submit" className="btn btn-outline-warning btn-block mt-4"/>
                                 <Link to="/" className="btn btn-outline-warning mt-4">
                                     Cancel
                             </Link>

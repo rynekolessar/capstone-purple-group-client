@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
+// import authService from '../services/auth.service';
 
 class Login extends Component {
     constructor() {
         super();
         this.state = {
-            username: '',
+            email: '',
             password: '',
         };
     }
@@ -20,25 +21,45 @@ class Login extends Component {
         e.preventDefault();
 
         const data = {
-            username: '',
-            password: ''
+            email: this.state.email,
+            password: this.state.password
         };
 
         axios
             .post('http://localhost:8082/users/login', data)
             .then(res => {
                 this.setState({
-                    username: '',
-                    passowrd: ''
+                    email: '',
+                    password: ''
                 })
+                localStorage.setItem('user', JSON.stringify(res.data));
                 this.props.history.push('/');
             })
             .catch(err => {
                 console.log("Error in Login");
             })
-    };
+
+        // authService.login(
+        //     data
+        // ).then(response => {
+        //     this.props.history.push('/');
+        // },
+        //     error => {
+        //         const resMessage =
+        //             (error.response &&
+        //                 error.response.data &&
+        //                 error.response.data.message) ||
+        //             error.message ||
+        //             error.toString();
+        //         this.setState({
+        //             successful: false,
+        //             message: resMessage
+        //         });
+        //     });
+    }
 
     render() {
+        console.log(localStorage.getItem('user'));
         return (
             <div className="Login">
                 <div className="container">
@@ -47,42 +68,39 @@ class Login extends Component {
                             <br />
                             <h2 className="display-4 text-center">Login</h2>
                         </div>
-                        
-                        <div className="col-md-4 m-auto">
-                        <p className="lead text-center">
-                              
-                        </p>
-                        <form noValidate onSubmit={this.onSubmit}>
-                        <div className='form-group'>
-                            <input
-                                type='text'
-                                placeholder='Username'
-                                name='username'
-                                className='form-control'
-                                value={this.state.username}
-                                onChange={this.onChange}
-                            />
-                        </div>
 
-                        <div className='form-group'>
-                             <input
-                                    type='text'
-                                    placeholder='Password'
-                                    name='password'
-                                    className='form-control'
-                                    value={this.state.password}
-                                    onChange={this.onChange}
-                                />
-                            </div>
-                            <input
-                                type="submit"
-                                className="btn btn-outline-warning btn-block mt-4"
-                                />
+                        <div className="col-md-4 m-auto">
+                            <p className="lead text-center">
+
+                            </p>
+                            <form noValidate onSubmit={this.onSubmit}>
+                                <div className='form-group'>
+                                    <input
+                                        type='text'
+                                        placeholder='Email'
+                                        name='email'
+                                        className='form-control'
+                                        value={this.state.email}
+                                        onChange={this.onChange}
+                                    />
+                                </div>
+
+                                <div className='form-group'>
+                                    <input
+                                        type='text'
+                                        placeholder='Password'
+                                        name='password'
+                                        className='form-control'
+                                        value={this.state.password}
+                                        onChange={this.onChange}
+                                    />
+                                </div>
+                                <input type="submit" className="btn btn-outline-warning btn-block mt-4" />
                                 <Link to="/" className="btn btn-outline-warning mt-4">
-                                     Cancel  
-                            </Link>
+                                    Cancel
+                                </Link>
                             </form>
-                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
