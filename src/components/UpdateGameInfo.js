@@ -53,7 +53,7 @@ class UpdateGameInfo extends Component {
         };
 
         axios
-            .put('http://localhost:8082/games/'+this.props.match.params.id, data)
+            .patch('http://localhost:8082/games/'+this.props.match.params.id, data)
             .then(res => {
                 this.props.history.push('/show-game/'+this.props.match.params.id);
             })
@@ -71,7 +71,7 @@ class UpdateGameInfo extends Component {
                     <div className="col-md-8 m-auto">
                         <br />
                         <Link to="/" className="btn btn-outline-warning float-left">
-                            Show Game List
+                            Home
                         </Link>
                     </div>
                     <div className="col-md-8 m-auto">

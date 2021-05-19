@@ -57,8 +57,8 @@ class CreateGame extends Component {
 			  <div className="row">
 				<div className="col-md-8 m-auto">
 				  <br />
-				  <Link to="/show-game" className="btn btn-outline-warning float-left">
-					  Show Game List
+				  <Link to="/game-list" className="btn btn-outline-warning float-left">
+					  All Games
 				  </Link>
 				</div>
 				<div className="col-md-8 m-auto">

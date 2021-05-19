@@ -3,16 +3,26 @@ import "../App.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import GameCard from "./GameCard";
+import AuthService from "../services/auth.service";
 
 class ShowGameList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      games: []
+      games: [],
+      currentUser: undefined
     };
   }
 
   componentDidMount() {
+    const user = AuthService.getCurrentUser();
+
+    if (user) {
+      this.setState({
+        currentUser: user
+      });
+    }
+
     axios
       .get("http://localhost:8082/games")
       .then((res) => {
@@ -22,7 +32,8 @@ class ShowGameList extends Component {
       })
       .catch((err) => {
         console.log("Error in ShowGameList");
-      })
+      });
+
   };
 
   render() {
@@ -33,9 +44,15 @@ class ShowGameList extends Component {
     if (!games) {
       gameList = "there is no game record";
     } else {
-      gameList = games.map((game, k) => 
+      gameList = games.map((game, k) =>
         <GameCard game={game} key={k} />
       );
+    }
+    const currentUser = this.state.currentUser;
+
+    function logout() {
+      AuthService.logout();
+      window.location.reload(false);
     }
 
     return (
@@ -48,19 +65,35 @@ class ShowGameList extends Component {
             </div>
 
             <div className="col-md-11">
+              {currentUser ? (
+                <div>
+                  <button onClick={logout} className="btn btn-outline-warning float-right">
+                    Log Out
+                  </button>
+                  <Link to="/myreviews" className="btn btn-outline-warning float-right">
+                    {currentUser.data.user.name}'s Reviews
+                  </Link>
+                </div>
+              ) : (
+                <div>
+                  <Link to="/login" className="btn btn-outline-warning float-right">
+                    Login
+                  </Link>
+                  <Link to="/signup" className="btn btn-outline-warning float-right">
+                    SignUp
+                  </Link>
+                </div>
+              )}
               <Link to="/" className="btn btn-outline-warning float-left">
-                            Home
-              </Link>
-              <Link to="/myreviews" className="btn btn-outline-warning float-left">
-                   My Reviews
+                Home
               </Link>
               <Link to="/aboutus" className="btn btn-outline-warning float-left">
-                            About Us
+                About Us
               </Link>
               <Link to="/create-game" className="btn btn-outline-warning float-right">
-                            + Add New Game
+                + Add New Game
               </Link>
-               
+
               <br />
               <br />
               <hr />
