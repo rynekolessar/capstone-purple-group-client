@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import AuthService from './services/auth.service';
 
 import CreateGame from './components/CreateGame';
 import ShowGameList from './components/ShowGameList';
@@ -15,19 +17,20 @@ import AboutUs from './components/AboutUs';
 class App extends Component {
   render() {
     return (
-      <Router>
-            <div>
-                <Route exact path='/' component={HomePage} />
-                <Route path='/login' component={Login} />
-                <Route path='/signup' component={SignUp}/>
-                <Route path='/show-game' component={ShowGameList}/>
-                <Route path='/create-game' component={CreateGame} />
-                <Route path='/edit-game/:id' component={UpdateGameInfo} />
-                <Route path='/show-game/:id' component={ShowGameDetails} />
-                <Route path='/myreviews' component={MyReviews} />
-                <Route path='/aboutus' component={AboutUs}/>
-            </div>
-      </Router>
+        <Router>
+          <div>
+            <Route exact path='/' component={HomePage} />
+            {/* <Route path='/logout' component={Logout} /> */}
+            <Route path='/login' component={Login} />
+            <Route path='/signup' component={SignUp} />
+            <Route path='/game-list' component={ShowGameList} />
+            <Route path='/create-game' component={CreateGame} />
+            <Route path='/edit-game/:id' component={UpdateGameInfo} />
+            <Route path='/show-game/:id' component={ShowGameDetails} />
+            <Route path='/myreviews' component={MyReviews} />
+            <Route path='/aboutus' component={AboutUs} />
+          </div>
+        </Router>
     );
   }
 }
