@@ -61,7 +61,7 @@ class ShowGameList extends Component {
           <div className="row">
             <div className="col-md-12">
               <br />
-              <h2 className="display-4 text-center">Games List</h2>
+              <h2 className="display-4 text-center">All Games</h2>
             </div>
 
             <div className="col-md-11">
@@ -72,6 +72,9 @@ class ShowGameList extends Component {
                   </button>
                   <Link to="/myreviews" className="btn btn-outline-warning float-right">
                     {currentUser.data.user.name}'s Reviews
+                  </Link>
+                  <Link to="/create-game" className="btn btn-outline-warning float-right">
+                    + Add New Game
                   </Link>
                 </div>
               ) : (
@@ -90,9 +93,9 @@ class ShowGameList extends Component {
               <Link to="/aboutus" className="btn btn-outline-warning float-left">
                 About Us
               </Link>
-              <Link to="/create-game" className="btn btn-outline-warning float-right">
+              {/* <Link to="/create-game" className="btn btn-outline-warning float-right">
                 + Add New Game
-              </Link>
+              </Link> */}
 
               <br />
               <br />
