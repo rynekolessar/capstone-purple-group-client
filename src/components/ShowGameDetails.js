@@ -74,6 +74,11 @@ class showGameDetails extends Component {
             <td>Description</td>
             <td>{game.description}</td>
           </tr>
+          <tr>
+            <th scope="row">7</th>
+            <td>Average Rating</td>
+            <td>{game.averageRating}</td>
+          </tr>
         </tbody>
       </table>
     </div>
@@ -115,6 +120,12 @@ class showGameDetails extends Component {
                 Edit Game
               </Link>
               <br />
+            </div>
+
+            <div className="col-md-6">
+              <Link to={`/create-review/${game._id}`} className="btn btn-outline-info btn-lg btn-block">
+                Review Game
+              </Link>
             </div>
           </div>
         </div>
