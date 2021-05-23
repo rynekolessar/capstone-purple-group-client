@@ -52,30 +52,31 @@ class AboutUs extends Component {
               <br />
               <br />
               <hr />
-              <p className="display-4 text-center">
-                Purple Team
-              </p>
-              <p className="display-6 text-center">
-                Members:
-                <br />
-                <br />Antonio Pavloski:
-                <br />Project/Presentation Manager
-                <br />
-                <br />Ryne Kolessar:
-                <br />Designer/Systems Programmer/Implentation Manager
-                <br />
-                <br />Pedro Ferrer:
-                <br />Planner/Collaboration Manager
-                <br />
-                <br />Kinji Ridley:
-                <br />Requirements/Documentation Manager
-                <br />
-                <br />Parth Rana:
-                <br />Testing/Video Manager
-                <br />
-                <br />Jia Feng Lin:
-                <br />Webmaster/Usability Manager
-              </p>
+              <div className="container">
+                <h2 className="display-4 text-center">Purple Team</h2>
+                <p className="display-6 text-center">
+                  Members:
+                  <br />
+                  <br />Antonio Pavloski:
+                  <br />Project/Presentation Manager
+                  <br />
+                  <br />Ryne Kolessar:
+                  <br />Designer/Systems Programmer/Implentation Manager
+                  <br />
+                  <br />Pedro Ferrer:
+                  <br />Planner/Collaboration Manager
+                  <br />
+                  <br />Kinji Ridley:
+                  <br />Requirements/Documentation Manager
+                  <br />
+                  <br />Parth Rana:
+                  <br />Testing/Video Manager
+                  <br />
+                  <br />Jia Feng Lin:
+                  <br />Webmaster/Usability Manager
+                </p>
+                <br/> 
+              </div>
             </div>
 
           </div>
