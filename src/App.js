@@ -13,6 +13,7 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import MyReviews from './components/MyReviews';
 import AboutUs from './components/AboutUs';
+import CreateReview from './components/CreateReview';
 
 class App extends Component {
   render() {
@@ -29,6 +30,7 @@ class App extends Component {
             <Route path='/show-game/:id' component={ShowGameDetails} />
             <Route path='/myreviews' component={MyReviews} />
             <Route path='/aboutus' component={AboutUs} />
+            <Route path='/create-review/:id' component={CreateReview} />
           </div>
         </Router>
     );
