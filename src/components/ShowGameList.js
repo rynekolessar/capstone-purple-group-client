@@ -107,6 +107,9 @@ class ShowGameList extends Component {
           <div className="list">
             {gameList}
           </div>
+          <br />
+          <br />
+
         </div>
       </div>
     );
