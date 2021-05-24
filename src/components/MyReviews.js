@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import "../App.css";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import AuthService from "../services/auth.service"
+import MyReviewCard from "./MyReviewCard";
 
 class MyReviews extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      games: [],
-      currentUser: undefined
+      currentUser: undefined,
+      reviews: []
     };
   }
 
@@ -20,13 +22,40 @@ class MyReviews extends Component {
         currentUser: user
       });
     }
+
+    axios
+      .get('http://localhost:8082/users/' + user.data.user._id + '/reviews')
+      .then(res => {
+        this.setState({
+          reviews: res.data
+        })
+      })
+      .catch(err => {
+        console.log("Error in ShowGameDetails");
+      })
+
+
   };
 
   render() {
 
+    const reviews = this.state.reviews;
+    console.log("PrintGame: " + reviews);
+    let reviewList;
+
+    if (!reviews) {
+      reviewList = "there is no game record";
+    } else {
+      reviewList = reviews.map((review, k) =>
+        <MyReviewCard review={review} key={k} />
+      );
+    }
+
+
     function logOut() {
+      this.props.history.push("/");
       AuthService.logout();
-      window.location.reload(false);
+      // window.location.reload(false);
     }
 
     const currentUser = AuthService.getCurrentUser();
@@ -74,6 +103,12 @@ class MyReviews extends Component {
             </div>
 
           </div>
+          <div className="list">
+            {reviewList}
+          </div>
+          <br />
+          <br />
+
         </div>
       </div>
     );
