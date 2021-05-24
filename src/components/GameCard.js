@@ -1,24 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
+import Card from 'react-bootstrap/Card';
 
 const GameCard = (props) => {
-    const game = props.game;
+  const game = props.game;
 
-    return (
-        <div className="card-container">
-            <img src="https://image.api.playstation.com/cdn/UP1003/CUSA05657_00/FTkgdf4kd60kZPtiPrIGbqk1g5WaKfF7.png?w=440" alt="" />
-            <div className="desc">
-                <h2>
-                    <Link to={`/show-game/${game._id}`}>
-                        { game.title }
-                    </Link>
-                </h2>
-                <h3>{game.platform}</h3>
-                <p>{game.genre}</p>
-            </div>
-        </div>
-    )
+  return (
+    <Card
+      bg='dark'
+      text='light'
+    >
+      <Card.Img
+        variant="top"
+        src="https://www.actionforsickchildren.org/wp-content/uploads/2017/04/leaflet-cover-image-placeholder.jpg" />
+      <Card.Body>
+        <Card.Title>{game.title}</Card.Title>
+        <Card.Text>{game.platform}</Card.Text>
+        <Card.Link href={`/show-game/${game._id}`}>View Game</Card.Link>
+        <Card.Link href={`/create-review/${game._id}`}>Review Game</Card.Link>
+      </Card.Body>
+    </Card>
+  )
 };
 
 export default GameCard;
