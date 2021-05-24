@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import AuthService from '../services/auth.service';
+import axios from "axios";
+import GameCard from "./GameCard";
 
 class Homepage extends Component {
 
@@ -9,6 +11,7 @@ class Homepage extends Component {
     super(props);
     this.state = {
       search: '',
+      games: [],
       currentUser: undefined
     };
   }
@@ -21,19 +24,62 @@ class Homepage extends Component {
         currentUser: user
       });
     }
+    
+    axios
+    .get("http://localhost:8082/games")
+    .then((res) => {
+      this.setState({
+        games: res.data
+      })
+    })
+    .catch((err) => {
+      console.log("Error in ShowGameList");
+    });
+
   }
 
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  onSubmit = e => {
+    this.setState({
+      search: e.target.value
+    });
+
+    axios
+      .get("http://localhost:8082/games")
+      .then((res) => {
+        this.setState({
+          games: res.data
+        })
+      })
+      .catch((err) => {
+        console.log("Error in ShowGameList");
+      });
+  };
+
   render() {
+
+    const games = this.state.games;
+    const search = this.state.search;
+    console.log("PrintGame: " + games);
+    let gameList;
+
+    if (!games) {
+      gameList = "";
+    } else {
+      gameList = games
+        .filter(game => game.title.includes(this.state.search))
+        .map((game, k) =>
+          <GameCard game={game} key={k} />
+        );
+    }
 
     function logOut() {
       AuthService.logout();
       window.location.reload(false);
     }
-
     const currentUser = this.state.currentUser;
 
     return (
@@ -81,6 +127,7 @@ class Homepage extends Component {
                   <form noValidate onSubmit={this.onSubmit}>
                     <div className='form-group'>
                       <input
+                        autocomplete="off"
                         type='text'
                         placeholder='Search'
                         name='search'
@@ -95,6 +142,11 @@ class Homepage extends Component {
               </div>
             </div>
           </div>
+          <div className="list">
+            {gameList}
+          </div>
+          <br />
+          <br />
         </div>
       </div>
     );
