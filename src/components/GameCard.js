@@ -13,7 +13,8 @@ const GameCard = (props) => {
     >
       <Card.Img
         variant="top"
-        src="https://www.actionforsickchildren.org/wp-content/uploads/2017/04/leaflet-cover-image-placeholder.jpg" />
+        src={game.imageCover}
+        alt="Image Unavailable" />
       <Card.Body>
         <Card.Title>{game.title}</Card.Title>
         <Card.Text>{game.platform}</Card.Text>

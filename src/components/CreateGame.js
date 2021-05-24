@@ -10,10 +10,10 @@ class CreateGame extends Component {
       title: '',
       platform: '',
       genre: '',
-      release_date: '',
+      releaseDate: '',
       description: '',
-      game_studio: '',
-      image: ''
+      gameStudio: '',
+      // imageCover: ''
     };
   }
 
@@ -22,7 +22,7 @@ class CreateGame extends Component {
   };
 
   handleImages = e => {
-    this.setState( { images: e.target.files[0] });
+    this.setState( { imageCover: e.target.files[0] });
   };
 
   onSubmit = e => {
@@ -32,10 +32,10 @@ class CreateGame extends Component {
       title: this.state.title,
       platform: this.state.platform,
       genre: this.state.genre,
-      release_date: this.state.release_date,
+      releaseDate: this.state.releaseDate,
       description: this.state.description,
-      game_studio: this.state.game_studio,
-      images: this.state.image
+      gameStudio: this.state.gameStudio,
+      // imageCover: this.state.imageCover
     };
 
     axios
@@ -45,10 +45,10 @@ class CreateGame extends Component {
           title: '',
           platform: '',
           genre: '',
-          release_date: '',
+          releaseDate: '',
           description: '',
-          game_studio: '',
-          images: ''
+          gameStudio: '',
+          // imageCover: ''
         })
         this.props.history.push('/');
       })
@@ -124,10 +124,10 @@ class CreateGame extends Component {
                 <div className='form-group'>
                   <input
                     type='date'
-                    placeholder='release_date'
-                    name='release_date'
+                    placeholder='releaseDate'
+                    name='releaseDate'
                     className='form-control'
-                    value={this.state.release_date}
+                    value={this.state.releaseDate}
                     onChange={this.onChange}
                   />
                 </div>
@@ -135,24 +135,24 @@ class CreateGame extends Component {
                   <input
                     type='text'
                     placeholder='Game Studio'
-                    name='game_studio'
+                    name='gameStudio'
                     className='form-control'
-                    value={this.state.game_studio}
+                    value={this.state.gameStudio}
                     onChange={this.onChange}
                   />
                 </div>
 
-                <label htmlFor='image'>Game Cover Image</label>
+                {/* <label htmlFor='image'>Cover Image</label>
                 <div className='form-group'>
                   <input
                     type='file'
                     accept='.png, .jpg, .jpeg'
                     placeholder='Game Cover Image'
-                    name='images'
+                    name='imageCover'
                     className='form-control'
                     onChange={this.handleImages}
                   />
-                </div>
+                </div> */}
 
                 <input
                   type="submit"
