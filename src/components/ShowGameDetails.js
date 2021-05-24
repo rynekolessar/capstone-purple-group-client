@@ -111,19 +111,19 @@ class showGameDetails extends Component {
           </div>
 
           <div className="row">
-            <div className="col-md-6">
+            <div className="col-md-4">
               <button type="button" className="btn btn-outline-danger btn-lg btn-block" onClick={this.onDeleteClick.bind(this, game._id)}>Delete Game</button><br />
             </div>
 
-            <div className="col-md-6">
-              <Link to={`/edit-game/${game._id}`} className="btn btn-outline-info btn-lg btn-block">
+            <div className="col-md-4">
+              <Link to={`/edit-game/${game._id}`} className="btn btn-outline-warning btn-lg btn-block">
                 Edit Game
               </Link>
               <br />
             </div>
 
-            <div className="col-md-6">
-              <Link to={`/create-review/${game._id}`} className="btn btn-outline-info btn-lg btn-block">
+            <div className="col-md-4">
+              <Link to={`/create-review/${game._id}`} className="btn btn-outline-success btn-lg btn-block">
                 Review Game
               </Link>
             </div>
