@@ -70,7 +70,6 @@ class CreateReview extends Component {
 
   render() {
     const game = this.state.game;
-    const user = this.state.user;
     let GameItem =
       <div>
         <br />
