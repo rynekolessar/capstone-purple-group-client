@@ -74,9 +74,6 @@ class MyReviews extends Component {
             <div className="col-md-11">
               {currentUser ? (
                 <div>
-                  <button onClick={logOut} className="btn btn-outline-warning float-right">
-                    Log Out
-                  </button>
                 </div>
               ) : (
                 <div>
