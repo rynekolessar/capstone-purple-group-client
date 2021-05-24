@@ -150,6 +150,7 @@ class CreateReview extends Component {
               <form noValidate onSubmit={this.onSubmit}>
                 <div className='form-group'>
                   <input 
+                    autocomplete="off"
                     type='text'
                     placeholder='Review'
                     name='review'

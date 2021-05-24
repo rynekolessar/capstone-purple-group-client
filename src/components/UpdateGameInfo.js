@@ -96,6 +96,7 @@ class UpdateGameInfo extends Component {
               <div className='form-group'>
                 <label htmlFor="title">Title</label>
                 <input
+                  autocomplete="off"
                   type='text'
                   placeholder='Title of the Game'
                   name='title'
@@ -109,6 +110,7 @@ class UpdateGameInfo extends Component {
               <div className='form-group'>
                 <label htmlFor="platform">What platform is the game on?</label>
                 <input
+                  autocomplete="off"
                   type='text'
                   placeholder='Platform'
                   name='platform'
@@ -121,6 +123,7 @@ class UpdateGameInfo extends Component {
               <div className='form-group'>
                 <label htmlFor="genre">Genre</label>
                 <input
+                  autocomplete="off"
                   type='text'
                   placeholder='Genre'
                   name='genre'
@@ -133,6 +136,7 @@ class UpdateGameInfo extends Component {
               <div className='form-group'>
                 <label htmlFor="description">Description</label>
                 <input
+                  autocomplete="off"
                   type='text'
                   placeholder='Describe this game'
                   name='description'
@@ -156,6 +160,7 @@ class UpdateGameInfo extends Component {
               <div className='form-group'>
                 <label htmlFor="studio">Studio</label>
                 <input
+                  autocomplete="off"
                   type='text'
                   placeholder='Studio who made this game'
                   name='gameStudio'

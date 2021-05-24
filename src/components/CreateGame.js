@@ -77,6 +77,7 @@ class CreateGame extends Component {
               <form noValidate onSubmit={this.onSubmit}>
                 <div className='form-group'>
                   <input
+                    autocomplete="off"
                     type='text'
                     placeholder='Title of the Game'
                     name='title'
@@ -89,6 +90,7 @@ class CreateGame extends Component {
 
                 <div className='form-group'>
                   <input
+                    autocomplete="off"
                     type='text'
                     placeholder='What platform is the game on?'
                     name='platform'
@@ -100,6 +102,7 @@ class CreateGame extends Component {
 
                 <div className='form-group'>
                   <input
+                    autocomplete="off"
                     type='text'
                     placeholder='Genre'
                     name='genre'
@@ -111,6 +114,7 @@ class CreateGame extends Component {
 
                 <div className='form-group'>
                   <input
+                    autocomplete="off"
                     type='text'
                     placeholder='Description'
                     name='description'

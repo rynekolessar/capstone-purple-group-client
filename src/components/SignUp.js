@@ -68,6 +68,7 @@ class SignUp extends Component {
               <form onSubmit={this.onSubmit}>
                 <div className='form-group'>
                   <input
+                    autocomplete="off"
                     type='text'
                     placeholder='Name'
                     name='name'
@@ -79,6 +80,7 @@ class SignUp extends Component {
 
                 <div className='form-group'>
                   <input
+                    autocomplete="off"
                     type='text'
                     placeholder='Email'
                     name='email'
@@ -101,7 +103,7 @@ class SignUp extends Component {
 
                 <div className='form-group'>
                   <input
-                    type='text'
+                    type='password'
                     placeholder='Confirm Password'
                     name='confirmPassword'
                     className='form-control'
