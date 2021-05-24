@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
+import ReviewCard from './ReviewCard';
 
 class showGameDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      game: {}
+      game: {},
+      reviews: []
     };
   }
 
@@ -21,7 +23,19 @@ class showGameDetails extends Component {
       })
       .catch(err => {
         console.log("Error in ShowGameDetails");
+      });
+
+    axios
+      .get('http://localhost:8082/games/' + this.props.match.params.id + '/reviews')
+      .then(res => {
+        this.setState({
+          reviews: res.data
+        })
       })
+      .catch(err => {
+        console.log("Error in ShowGameDetails");
+      })
+
   };
 
   onDeleteClick(id) {
@@ -38,50 +52,63 @@ class showGameDetails extends Component {
 
   render() {
 
+    const reviews = this.state.reviews;
+    console.log("PrintGame: " + reviews);
+    let reviewList;
+
+    if (!reviews) {
+      reviewList = "there is no game record";
+    } else {
+      reviewList = reviews.map((review, k) =>
+        <ReviewCard review={review} key={k} />
+      );
+    }
+
+
     const game = this.state.game;
-    let GameItem = 
-    <div>
-      <br />
-      <table className="table table-hover table-dark">
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Title</td>
-            <td>{game.title}</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Game Studio</td>
-            <td>{game.game_studio}</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Genre</td>
-            <td>{game.genre}</td>
-          </tr>
-          <tr>
-            <th scope="row">4</th>
-            <td>Platform</td>
-            <td>{game.platform}</td>
-          </tr>
-          <tr>
-            <th scope="row">5</th>
-            <td>Release Date</td>
-            <td>{game.release_date}</td>
-          </tr>
-          <tr>
-            <th scope="row">6</th>
-            <td>Description</td>
-            <td>{game.description}</td>
-          </tr>
-          <tr>
-            <th scope="row">7</th>
-            <td>Average Rating</td>
-            <td>{game.averageRating}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    let GameItem =
+      <div>
+        <br />
+        <table className="table table-hover table-dark">
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Title</td>
+              <td>{game.title}</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Game Studio</td>
+              <td>{game.gameStudio}</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Genre</td>
+              <td>{game.genre}</td>
+            </tr>
+            <tr>
+              <th scope="row">4</th>
+              <td>Platform</td>
+              <td>{game.platform}</td>
+            </tr>
+            <tr>
+              <th scope="row">5</th>
+              <td>Release Date</td>
+              <td>{game.releaseDate}</td>
+            </tr>
+            <tr>
+              <th scope="row">6</th>
+              <td>Description</td>
+              <td>{game.description}</td>
+            </tr>
+            <tr>
+              <th scope="row">7</th>
+              <td>Average Rating</td>
+              <td>{game.averageRating}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
     return (
       <div className="ShowGameDetails">
@@ -90,9 +117,6 @@ class showGameDetails extends Component {
             <div className="col-md-12">
               <br />
               <h2 className="display-4 text-center">{game.title}</h2>
-              {/* <p className="lead text-center">
-                Rating:
-              </p> */}
             </div>
             <div className="col-md-11">
               <Link to="/" className="btn btn-outline-warning float-left">
@@ -128,7 +152,16 @@ class showGameDetails extends Component {
               </Link>
             </div>
           </div>
+          <h2 className="display-5 text-left">Reveiws:</h2>
+
+          <div className="list">
+            {reviewList}
+          </div>
+          <br />
+          <br />
+
         </div>
+
       </div>
     );
   }
