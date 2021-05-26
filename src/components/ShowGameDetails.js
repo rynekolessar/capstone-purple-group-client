@@ -152,7 +152,7 @@ class showGameDetails extends Component {
               </Link>
             </div>
           </div>
-          <h2 className="display-5 text-left">Reveiws:</h2>
+          <h2 className="display-5 text-left">Reviews:</h2>
 
           <div className="list">
             {reviewList}
