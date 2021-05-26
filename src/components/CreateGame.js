@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
+import logo from "../site-logo.png";
 
 class CreateGame extends Component {
   constructor() {
@@ -62,6 +63,9 @@ class CreateGame extends Component {
       <div className="CreateGame">
         <div className="container">
           <div className="row">
+          <div className="col-md-12">
+              <img src={logo} className="d-block mx-auto img-fluid" alt="Logo" />
+            </div>
             <div className="col-md-8 m-auto">
               <br />
               <Link to="/game-list" className="btn btn-outline-warning float-left">

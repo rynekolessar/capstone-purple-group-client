@@ -4,6 +4,7 @@ import '../App.css';
 import AuthService from '../services/auth.service';
 import axios from "axios";
 import GameCard from "./GameCard";
+import logo from "../site-logo.png";
 
 class Homepage extends Component {
 
@@ -88,7 +89,7 @@ class Homepage extends Component {
           <div className="row">
             <div className="col-md-12">
               <br />
-              <h2 className="display-4 text-center">Game Crtic</h2>
+              <img src={logo} className="d-block mx-auto img-fluid" alt="Logo" />
             </div>
 
             <div className="col-md-11">
@@ -97,7 +98,7 @@ class Homepage extends Component {
                   <button onClick={logOut} className="btn btn-outline-warning float-right">
                     Log Out
                   </button>
-                  <Link to="/myreviews" className="btn btn-outline-warning float-right">
+                  <Link to="/myreviews" className="btn btn-outline-warning float-right mr-3">
                     {currentUser.data.user.name}'s Reviews
                   </Link>
                 </div>
@@ -106,12 +107,12 @@ class Homepage extends Component {
                   <Link to="/login" className="btn btn-outline-warning float-right">
                     Login
                   </Link>
-                  <Link to="/signup" className="btn btn-outline-warning float-right">
+                  <Link to="/signup" className="btn btn-outline-warning float-right mr-3">
                     SignUp
                   </Link>
                 </div>
               )}
-              <Link to="/game-list" className="btn btn-outline-warning float-left">
+              <Link to="/game-list" className="btn btn-outline-warning float-left mr-3">
                 All Games
               </Link>
               <Link to="/aboutus" className="btn btn-outline-warning float-left">

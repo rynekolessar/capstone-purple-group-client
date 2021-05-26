@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
+import logo from '../site-logo.png';
 // import authService from '../services/auth.service';
 
 class Login extends Component {
@@ -47,8 +48,9 @@ class Login extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <br />
+              <img src={logo} className="d-block mx-auto img-fluid" alt="Logo" />
               <h2 className="display-4 text-center">Login</h2>
+              <br />
             </div>
 
             <div className="col-md-4 m-auto">

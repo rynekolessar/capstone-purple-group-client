@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import AuthService from '../services/auth.service'
+import logo from "../site-logo.png";
 
 class AboutUs extends Component {
   render() {
@@ -20,11 +21,12 @@ class AboutUs extends Component {
           <div className="row">
             <div className="col-md-12">
               <br />
+              <img src={logo} className="d-block mx-auto img-fluid" alt="Logo" />
               <h2 className="display-4 text-center">About Us</h2>
             </div>
 
             <div className="col-md-11">
-              <Link to="/" className="btn btn-outline-warning float-left">
+              <Link to="/" className="btn btn-outline-warning float-left mr-3">
                 Home
               </Link>
               <Link to="/game-list" className="btn btn-outline-warning float-left">
@@ -35,7 +37,7 @@ class AboutUs extends Component {
                   <button onClick={logOut} className="btn btn-outline-warning float-right">
                     Log Out
                   </button>
-                  <Link to="/myreviews" className="btn btn-outline-warning float-right">
+                  <Link to="/myreviews" className="btn btn-outline-warning float-right mr-3">
                     {currentUser.data.user.name}'s Reviews
                   </Link>
                 </div>
@@ -44,7 +46,7 @@ class AboutUs extends Component {
                   <Link to="/login" className="btn btn-outline-warning float-right">
                     Login
                   </Link>
-                  <Link to="/signup" className="btn btn-outline-warning float-right">
+                  <Link to="/signup" className="btn btn-outline-warning float-right mr-3">
                     SignUp
                   </Link>
                 </div>

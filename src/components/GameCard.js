@@ -11,10 +11,6 @@ const GameCard = (props) => {
       bg='dark'
       text='light'
     >
-      <Card.Img
-        variant="top"
-        src={game.imageCover}
-        alt="Image Unavailable" />
       <Card.Body>
         <Card.Title>{game.title}</Card.Title>
         <Card.Text>{game.platform}</Card.Text>

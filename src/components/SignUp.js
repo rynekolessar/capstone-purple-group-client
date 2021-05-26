@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css';
 import AuthService from '../services/auth.service';
+import logo from "../site-logo.png";
 
 class SignUp extends Component {
   constructor() {
@@ -57,8 +58,10 @@ class SignUp extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <br />
+
+              <img src={logo} className="d-block mx-auto img-fluid" alt="Logo" />
               <h2 className="display-4 text-center">SignUp</h2>
+              <br />
             </div>
 
             <div className="col-md-4 m-auto">

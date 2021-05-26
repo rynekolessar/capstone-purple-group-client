@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import AuthService from "../services/auth.service"
 import MyReviewCard from "./MyReviewCard";
+import logo from "../site-logo.png";
 
 class MyReviews extends Component {
 
@@ -65,10 +66,11 @@ class MyReviews extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <br />
+              <img src={logo} className="d-block mx-auto img-fluid" alt="Logo" />
               <h2 className="display-4 text-center">
                 {currentUser.data.user.name}'s Reviews
               </h2>
+              <br />
             </div>
 
             <div className="col-md-11">
@@ -85,10 +87,10 @@ class MyReviews extends Component {
                   </Link>
                 </div>
               )}
-              <Link to="/" className="btn btn-outline-warning float-left">
+              <Link to="/" className="btn btn-outline-warning float-left mr-3">
                 Home
               </Link>
-              <Link to="/game-list" className="btn btn-outline-warning float-left">
+              <Link to="/game-list" className="btn btn-outline-warning float-left mr-3">
                 All Games
               </Link>
               <Link to="/aboutus" className="btn btn-outline-warning float-left">

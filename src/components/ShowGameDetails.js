@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
 import ReviewCard from './ReviewCard';
+import logo from "../site-logo.png";
 
 class showGameDetails extends Component {
   constructor(props) {
@@ -115,11 +116,11 @@ class showGameDetails extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <br />
+              <img src={logo} className="d-block mx-auto img-fluid" alt="Logo" />
               <h2 className="display-4 text-center">{game.title}</h2>
             </div>
             <div className="col-md-11">
-              <Link to="/" className="btn btn-outline-warning float-left">
+              <Link to="/" className="btn btn-outline-warning float-left mr-3">
                 Home
               </Link>
               <Link to="/game-list" className="btn btn-outline-warning float-left">
@@ -152,7 +153,7 @@ class showGameDetails extends Component {
               </Link>
             </div>
           </div>
-          <h2 className="display-5 text-left">Reveiws:</h2>
+          <h2 className="display-5 text-left">Reviews:</h2>
 
           <div className="list">
             {reviewList}

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../App.css';
 import axios from 'axios';
 import AuthService from '../services/auth.service';
+import logo from "../site-logo.png";
 
 class CreateReview extends Component {
   constructor(props) {
@@ -114,14 +115,15 @@ class CreateReview extends Component {
         <div className="container">
           <div className="row">
             <div className="col-md-12">
-              <br />
+              <img src={logo} className="d-block mx-auto img-fluid" alt="Logo" />
+            
               <h2 className="display-4 text-center">Review {game.title}</h2>
               {/* <p className="lead text-center">
                     Rating:
                   </p> */}
             </div>
             <div className="col-md-11 ">
-              <Link to="/" className="btn btn-outline-warning float-left">
+              <Link to="/" className="btn btn-outline-warning float-left mr-3">
                 Home
               </Link>
               <Link to={`/show-game/${game._id}`} className="btn btn-outline-danger float-left">

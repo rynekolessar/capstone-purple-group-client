@@ -18,6 +18,10 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.img {
+  display: inline-block;
+  vertical-align: middle;
+}
 
 .App-link {
   color: #61dafb;
@@ -30,6 +34,12 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.center-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .CreateGame {

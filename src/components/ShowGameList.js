@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import GameCard from "./GameCard";
 import AuthService from "../services/auth.service";
+import logo from "../site-logo.png";
 
 class ShowGameList extends Component {
   constructor(props) {
@@ -61,7 +62,9 @@ class ShowGameList extends Component {
           <div className="row">
             <div className="col-md-12">
               <br />
+              <img src={logo} className="d-block mx-auto img-fluid" alt="Logo" />
               <h2 className="display-4 text-center">All Games</h2>
+              <br />
             </div>
 
             <div className="col-md-11">
@@ -70,10 +73,10 @@ class ShowGameList extends Component {
                   <button onClick={logout} className="btn btn-outline-warning float-right">
                     Log Out
                   </button>
-                  <Link to="/myreviews" className="btn btn-outline-warning float-right">
+                  <Link to="/myreviews" className="btn btn-outline-warning float-right mr-3">
                     {currentUser.data.user.name}'s Reviews
                   </Link>
-                  <Link to="/create-game" className="btn btn-outline-warning float-right">
+                  <Link to="/create-game" className="btn btn-outline-warning float-left mr-3">
                     + Add New Game
                   </Link>
                 </div>
@@ -82,12 +85,12 @@ class ShowGameList extends Component {
                   <Link to="/login" className="btn btn-outline-warning float-right">
                     Login
                   </Link>
-                  <Link to="/signup" className="btn btn-outline-warning float-right">
+                  <Link to="/signup" className="btn btn-outline-warning float-right mr-3">
                     SignUp
                   </Link>
                 </div>
               )}
-              <Link to="/" className="btn btn-outline-warning float-left">
+              <Link to="/" className="btn btn-outline-warning float-left mr-3">
                 Home
               </Link>
               <Link to="/aboutus" className="btn btn-outline-warning float-left">
